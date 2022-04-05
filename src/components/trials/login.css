@@ -1,0 +1,84 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  width: 100%;
+}
+
+.login > .login__main {
+  display: grid;
+  grid-template-columns: 5rem 1.2fr 1fr 5rem;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 70%;
+  background: linear-gradient(#be3131, rgb(26, 28, 148), #19a874);
+  border-radius: 2rem;
+}
+
+.login__main > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo__login {
+  grid-column: 2/3;
+}
+
+.logo__login img {
+  width: 50%;
+}
+
+.login__input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login__input > div {
+  width: 85%;
+  height: 20rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login__input > div > p {
+  color: aliceblue;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.login__input input {
+  height: 3.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--body);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.login__input button {
+  width: 50%;
+  height: 3rem;
+  font-size: medium;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--focus);
+  cursor: pointer;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__input button:hover {
+  background: var(--green);
+  color: var(--focus);
+}

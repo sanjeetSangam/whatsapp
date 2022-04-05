@@ -1,0 +1,38 @@
+#rightDiv {
+  background-color: #222e35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#rightCon {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+  /* height: 600px; */
+}
+
+#forImg {
+  margin: auto;
+  width: 75%;
+  border-radius: 50%;
+  height: 60%;
+}
+
+#forImg img {
+  height: 15rem;
+}
+
+#kee {
+  /* margin-top: 100%; */
+  font-size: 25px;
+  color: #d0caad;
+}
+.con {
+  font-size: 12px;
+  color: #85959f;
+}
+#llink {
+  color: #008c53;
+}

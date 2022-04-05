@@ -1,0 +1,22 @@
+.chat__item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  cursor: pointer;
+}
+
+.chat__item:hover {
+  background: var(--focus);
+}
+
+.profile__chat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.name__chat > p {
+  font-size: 0.8rem;
+}

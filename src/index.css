@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: "Hind Madurai", sans-serif;
+  background: none;
+}
+
+:root {
+  --green: #00a884;
+  --body: #e2e1de;
+  --chat-room: #efeae2;
+  --focus: #f0f2f5;
+  /* --focus: #202c33; */
+  --chat-list: #ffffff;
+  --menu: #54656f;
+}
+
+body {
+  background: var(--body);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.App {
+  background: var(--focus);
+  margin-top: 2rem;
+  max-height: 800px;
+  min-height: 800px;
+  min-width: 85vw;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.main__div {
+  background: #fff;
+  max-height: 800px;
+  min-height: 800px;
+  min-width: 85vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.main__div > div {
+  height: 100%;
+}
+
+.top__body {
+  position: fixed;
+  background: var(--green);
+  height: 8rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

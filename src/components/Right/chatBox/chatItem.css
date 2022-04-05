@@ -1,0 +1,51 @@
+h3 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 0.65rem;
+  text-align: left;
+}
+
+.item__chat {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem auto;
+}
+
+.item__chat > p {
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.item__chat.sent > p {
+  margin-right: 1rem;
+}
+
+.item__chat.sent {
+  display: flex;
+  align-items: flex-end;
+}
+
+.chat__message {
+  background: var(--focus);
+  width: 50%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  object-fit: contain;
+}
+
+.chat__message.user {
+  width: auto;
+  background: var(--green);
+  justify-content: flex-end;
+  gap: 0.8rem;
+  text-align: end;
+  color: white;
+  object-fit: contain;
+}

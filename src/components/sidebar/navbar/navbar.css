@@ -1,0 +1,80 @@
+.navbar {
+  height: 15%;
+  border-bottom: 1px solid lightgray;
+}
+
+.navbar > div {
+  height: 50%;
+}
+
+.top__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--focus);
+  border-right: 1px solid lightgray;
+}
+
+.top__nav > div {
+  display: flex;
+  gap: 3rem;
+}
+
+.search__nav {
+  display: flex;
+  align-items: center;
+}
+
+.search__nav form {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--focus);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.search__nav form input {
+  background: none;
+  width: 100%;
+}
+
+.nav__options {
+  color: var(--menu);
+}
+
+.div {
+  cursor: pointer;
+}
+
+.search__nav {
+  position: relative;
+}
+
+.nav__options > div {
+  position: relative;
+}
+
+.signOut {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  right: 0;
+  top: 2.5rem;
+  background: var(--menu);
+  color: white;
+  width: 5rem;
+  border-radius: 0.2rem;
+  display: none;
+}
+
+.signOut.display {
+  display: block;
+}
+
+.signOut p {
+  font-size: 0.8rem;
+}

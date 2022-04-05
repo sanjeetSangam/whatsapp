@@ -1,0 +1,10 @@
+.sidebar {
+  grid-column: 1/2;
+  background: var(--chat-list);
+  height: 100%;
+}
+
+.chat__list {
+  overflow-y: scroll;
+  height: 84%;
+}
