@@ -9,6 +9,7 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [uploads, setUploads] = useState(false);
   // Inputs
   const [mynumber, setnumber] = useState("");
   const [otp, setotp] = useState("");
@@ -18,6 +19,8 @@ const Login = () => {
 
   const [gotUser, setGotUser] = useState([]);
 
+  const user = useSelector((store) => store.user.user);
+
   const [fileUrl, setFileUrl] = useState(null);
 
   const dispatch = useDispatch();
@@ -25,10 +28,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onFileChange = async (e) => {
+    setUploads(true);
+
     const file = e.target.files[0];
     const storageRef = firebaseApp.storage().ref();
     const fileRef = storageRef.child(file.name);
     await fileRef.put(file).then(() => {
+      setUploads(false);
       alert("Your Profile Pic is uploaded");
     });
     setFileUrl(await fileRef.getDownloadURL());
@@ -51,6 +57,7 @@ const Login = () => {
     let cokk = Cookies.get("user");
 
     if (cokk) {
+      console.log(user);
       dispatch(userData(JSON.parse(cokk)));
       navigate("/");
 
@@ -123,59 +130,66 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="login__main">
-        <div className="logo__login">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png"
-            alt=""
-          />
+      {uploads ? (
+        <div>
+          {" "}
+          <h1>Uploading....</h1>
         </div>
-
-        <div className="login__input">
-          <div
-            className="send__otp"
-            style={{ display: !show ? "flex" : "none" }}
-          >
-            <p>Enter Phone Number</p>
-
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-              placeholder="Enter Your Name"
+      ) : (
+        <div className="login__main">
+          <div className="logo__login">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png"
+              alt=""
             />
-
-            <input
-              value={mynumber}
-              onChange={(e) => {
-                setnumber(e.target.value);
-              }}
-              placeholder="+91 phone number"
-            />
-
-            <input type="file" onChange={onFileChange} />
-
-            <div className="cap" id="recaptcha-container"></div>
-            <button onClick={signin}>Send OTP</button>
           </div>
 
-          {/* verify */}
+          <div className="login__input">
+            <div
+              className="send__otp"
+              style={{ display: !show ? "flex" : "none" }}
+            >
+              <p>Enter Phone Number</p>
 
-          <div style={{ display: show ? "flex" : "none" }}>
-            <p>Enter OTP</p>
-            <input
-              type="text"
-              placeholder={"Enter your OTP"}
-              onChange={(e) => {
-                setotp(e.target.value);
-              }}
-            ></input>
-            <button onClick={ValidateOtp}>Verify</button>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                placeholder="Enter Your Name"
+              />
+
+              <input
+                value={mynumber}
+                onChange={(e) => {
+                  setnumber(e.target.value);
+                }}
+                placeholder="+91 phone number"
+              />
+
+              <input type="file" onChange={onFileChange} />
+
+              <div className="cap" id="recaptcha-container"></div>
+              <button onClick={signin}>Send OTP</button>
+            </div>
+
+            {/* verify */}
+
+            <div style={{ display: show ? "flex" : "none" }}>
+              <p>Enter OTP</p>
+              <input
+                type="text"
+                placeholder={"Enter your OTP"}
+                onChange={(e) => {
+                  setotp(e.target.value);
+                }}
+              ></input>
+              <button onClick={ValidateOtp}>Verify</button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
