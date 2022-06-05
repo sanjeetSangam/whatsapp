@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ChatBox from "./chatBox/ChatBox";
+// import { ChatBox } from "./chatBox/ChatBox";
 import "./Right.css";
 
 export const Right = () => {

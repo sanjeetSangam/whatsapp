@@ -5,8 +5,12 @@ import Navbar from "./navbar/Navbar";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+import { useNavigate } from "react-router-dom";
+
+export const Sidebar = () => {
   const [groups, setGroups] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     db.collection("groups")
@@ -21,6 +25,11 @@ const Sidebar = () => {
       );
   }, []);
 
+  const navig = (id) => {
+    sessionStorage.setItem("chat_id", JSON.stringify(id));
+    navigate(`/${id}`);
+  };
+
   return (
     <div className="sidebar">
       <Navbar />
@@ -29,10 +38,20 @@ const Sidebar = () => {
         {groups.map((item) => {
           return (
             <>
-              <Link
+              {/* <Link
                 key={item.id}
                 style={{ textDecoration: "none", color: "black" }}
                 to={`/${item.id}`}
+              >
+                
+              </Link> */}
+
+              <div
+                className="main__nav"
+                key={item.id}
+                onClick={() => {
+                  navig(item.id);
+                }}
               >
                 <ChatItem
                   key={item.id}
@@ -40,7 +59,7 @@ const Sidebar = () => {
                   name={item.group.name}
                   icon=""
                 />
-              </Link>
+              </div>
             </>
           );
         })}
@@ -48,5 +67,3 @@ const Sidebar = () => {
     </div>
   );
 };
-
-export default Sidebar;

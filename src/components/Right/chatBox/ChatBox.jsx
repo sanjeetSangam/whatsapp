@@ -18,12 +18,17 @@ import { useSelector } from "react-redux";
 
 import ReactScrollableFeed from "react-scrollable-feed";
 
-const ChatBox = () => {
+export const ChatBox = () => {
   const [massageType, setMassageType] = useState(true);
   const [massageData, setMassageData] = useState([]);
   const [message, setMessage] = useState("");
   const [data, setData] = useState({});
-  const { id } = useParams();
+  const { chat_id } = useParams();
+
+  let id = JSON.parse(sessionStorage.getItem("chat_id")) || chat_id;
+  // || JSON.parse(sessionStorage.getItem("chat_id"))
+
+  console.log(id);
 
   let user = useSelector((store) => store.user.user);
   // console.log(user);
@@ -115,5 +120,3 @@ const ChatBox = () => {
     </div>
   );
 };
-
-export default ChatBox;

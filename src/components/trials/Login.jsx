@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import "./login.css";
 
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [uploads, setUploads] = useState(false);
@@ -30,14 +31,18 @@ const Login = () => {
   const onFileChange = async (e) => {
     setUploads(true);
 
+    let link = "https://api.cloudinary.com/v1_1/editd/upload";
+
     const file = e.target.files[0];
-    const storageRef = firebaseApp.storage().ref();
-    const fileRef = storageRef.child(file.name);
-    await fileRef.put(file).then(() => {
-      setUploads(false);
-      alert("Your Profile Pic is uploaded");
-    });
-    setFileUrl(await fileRef.getDownloadURL());
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "whatsapp");
+
+    const { data } = await axios.post(link, formData);
+    setFileUrl(data.url);
+    alert("Your Profile Pic is uploaded");
+    setUploads(false);
   };
 
   // getting all the users from database---
