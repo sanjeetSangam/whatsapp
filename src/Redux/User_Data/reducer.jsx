@@ -1,10 +1,8 @@
 import { USER_DATA } from "./action";
 
-import Cookies from "js-cookie";
 
-let cokk = Cookies.get("user");
 
-let user = (cokk && JSON.parse(cokk)) || {};
+let user =  {};
 
 const init_data = { user: user };
 

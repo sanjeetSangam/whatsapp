@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { firebase, auth, firebaseApp } from "../../firebase/firebase";
+import { firebase, auth } from "../../firebase/firebase";
 import { userData } from "../../Redux/User_Data/action";
 import db from "../../firebase/firebase";
-import Cookies from "js-cookie";
 import "./login.css";
 
 import { useNavigate } from "react-router-dom";
@@ -31,7 +30,7 @@ const Login = () => {
   const onFileChange = async (e) => {
     setUploads(true);
 
-    let link = "https://api.cloudinary.com/v1_1/editd/upload";
+    let link = process.env.REACT_APP_IMAGE_LINK;
 
     const file = e.target.files[0];
 
@@ -59,22 +58,27 @@ const Login = () => {
   }, []);
 
   useEffect(() => {
-    let cokk = Cookies.get("user");
+    let cokk = localStorage.getItem("user");
 
     if (cokk) {
-      console.log(user);
       dispatch(userData(JSON.parse(cokk)));
       navigate("/");
 
       return;
-    } else {
-      console.log(false);
     }
   }, []);
 
   // Sent OTP
   const signin = () => {
-    if (mynumber === "" || mynumber.length < 10) return;
+    if (mynumber === "" || mynumber.length < 10 ) {
+      alert("Please Enter Valid Name or Phone Number");
+      return;
+    }
+
+    if (isNaN(mynumber)) {
+      alert("Please Enter Valid Number");
+      return;
+    }
 
     if (fileUrl === null) {
       alert("Please Upload Profile image");
@@ -123,7 +127,7 @@ const Login = () => {
           alert(`${name}, Welcome`);
         }
 
-        Cookies.set("user", JSON.stringify(userName), { expires: 2 });
+        localStorage.setItem("user", JSON.stringify(userName));
         dispatch(userData(userName));
       })
       .catch((err) => {
@@ -173,7 +177,15 @@ const Login = () => {
                 placeholder="+91 phone number"
               />
 
-              <input type="file" onChange={onFileChange} />
+              {/* <input type="file" onChange={onFileChange} /> */}
+
+              <input
+                type="text"
+                placeholder="Enter image url"
+                onChange={(e) => {
+                  setFileUrl(e.target.value);
+                }}
+              />
 
               <div className="cap" id="recaptcha-container"></div>
               <button onClick={signin}>Send OTP</button>

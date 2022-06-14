@@ -4,14 +4,13 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAWhAgposnBrUyAN_0qa4u3Iz2qQO3s8vg",
-  authDomain: "whatsapp-98d31.firebaseapp.com",
-  databaseURL: "https://whatsapp-98d31-default-rtdb.firebaseio.com",
-  projectId: "whatsapp-98d31",
-  storageBucket: "whatsapp-98d31.appspot.com",
-  messagingSenderId: "34130469986",
-  appId: "1:34130469986:web:10e58179eacc724d1f9d3b",
-  measurementId: "G-YQGC88G2V1",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH,
+  projectId: process.env.REACT_APP_PROJECT,
+  storageBucket: process.env.REACT_APP_STORAGE,
+  messagingSenderId: process.env.REACT_APP_MESSAGE,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MES_ID,
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);

@@ -37,30 +37,20 @@ export const Sidebar = () => {
       <div className="chat__list">
         {groups.map((item) => {
           return (
-            <>
-              {/* <Link
+            <div
+              className="main__nav"
+              key={item.id}
+              onClick={() => {
+                navig(item.id);
+              }}
+            >
+              <ChatItem
                 key={item.id}
-                style={{ textDecoration: "none", color: "black" }}
-                to={`/${item.id}`}
-              >
-                
-              </Link> */}
-
-              <div
-                className="main__nav"
-                key={item.id}
-                onClick={() => {
-                  navig(item.id);
-                }}
-              >
-                <ChatItem
-                  key={item.id}
-                  id={item.id}
-                  name={item.group.name}
-                  icon=""
-                />
-              </div>
-            </>
+                id={item.id}
+                name={item.group.name}
+                icon=""
+              />
+            </div>
           );
         })}
       </div>

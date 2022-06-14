@@ -26,14 +26,10 @@ export const ChatBox = () => {
   const { chat_id } = useParams();
 
   let id = JSON.parse(sessionStorage.getItem("chat_id")) || chat_id;
-  // || JSON.parse(sessionStorage.getItem("chat_id"))
-
-  console.log(id);
 
   let user = useSelector((store) => store.user.user);
-  // console.log(user);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (id) {
       db.collection("groups")
         .doc(id)
@@ -48,10 +44,6 @@ export const ChatBox = () => {
         setMassageData(snapshot.docs.map((doc) => doc.data()))
       );
   }, [id]);
-
-  useEffect(() => {
-    console.log(massageData);
-  }, []);
 
   function sendMessage(e) {
     e.preventDefault();
@@ -68,55 +60,57 @@ export const ChatBox = () => {
   }
 
   return (
-    <div className="chatBox">
-      <ChatPage
-        name={data.name}
-        lastSeen={
-          massageData.length === 0
-            ? false
-            : new Date(
-                massageData[massageData.length - 1]?.timestamp?.toDate()
-              ).toUTCString()
-        }
-      />
+    data && (
+      <div className="chatBox">
+        <ChatPage
+          name={data.name}
+          lastSeen={
+            massageData.length === 0
+              ? false
+              : new Date(
+                  massageData[massageData.length - 1]?.timestamp?.toDate()
+                ).toUTCString()
+          }
+        />
 
-      <div className="chat__content">
-        <ReactScrollableFeed>
-          {massageData.map((msg) => (
-            <Chat__item
-              key={msg.timestamp}
-              message={msg.message}
-              sender={msg.name}
-              timestamp={msg.timestamp}
-              type={msg.name === user.name ? massageType : false}
+        <div className="chat__content">
+          <ReactScrollableFeed>
+            {massageData.map((msg) => (
+              <Chat__item
+                key={msg.timestamp}
+                message={msg.message}
+                sender={msg.name}
+                timestamp={msg.timestamp}
+                type={msg.name === user.name ? massageType : false}
+              />
+            ))}
+          </ReactScrollableFeed>
+        </div>
+
+        <div className="chat__input">
+          <div className="chat__emoji">
+            <div>
+              <SentimentDissatisfiedIcon />
+            </div>
+            <div>
+              <AttachmentIcon />
+            </div>
+          </div>
+
+          <form action="" onSubmit={sendMessage}>
+            <input
+              type="text"
+              placeholder="Send message..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
-          ))}
-        </ReactScrollableFeed>
-      </div>
+          </form>
 
-      <div className="chat__input">
-        <div className="chat__emoji">
-          <div>
-            <SentimentDissatisfiedIcon />
-          </div>
-          <div>
-            <AttachmentIcon />
+          <div className="chat__mic">
+            <MicIcon />
           </div>
         </div>
-
-        <form action="" onSubmit={sendMessage}>
-          <input
-            type="text"
-            placeholder="Send message..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </form>
-
-        <div className="chat__mic">
-          <MicIcon />
-        </div>
       </div>
-    </div>
+    )
   );
 };

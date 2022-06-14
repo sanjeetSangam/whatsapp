@@ -12,11 +12,10 @@ import firebase from "firebase/compat/app";
 import "./navbar.css";
 import { useSelector } from "react-redux";
 
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [group, setGroup] = useState(null);
+  const [group, setGroup] = useState(undefined);
   const [gotGroups, setGotGroups] = useState([]);
   const navigate = useNavigate();
 
@@ -53,11 +52,11 @@ const Navbar = () => {
       });
     }
 
-    setGroup(null);
+    setGroup(undefined);
   };
 
   const signOut = () => {
-    Cookies.remove("user");
+    localStorage.remove("user");
     navigate("/");
     window.location.reload(false);
   };
