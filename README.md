@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+<h1>WhatsApp</h>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2><i>Contributors</i></h2>
+<ul>
+  <li>Sanjeet Kumar Sangam</i></li>
+  <li>Shivanshu Mishra</li>
+</ul>
 
-## Available Scripts
+<br>
+<h2>FLOW</h2>
+<ul>
+  <h3><i>Login</i></h3>
+  <li>Enter your name,phone number and profile picture you want to use</li>
+  <li>Get verified by Captcha</li>
+  <li>Enter OTP</li>
+</ul>
+<ul>
+  <h3><i>Chat</i></h3>
+  <li>After reaching on homepage you will see created groups in sidebar</li>
+  <li>For creating another groups enter group name and hit enter<i>Add Groups</li></li>
+  <li>Now you can start chatting.🙂</li>
+</ul>
+<ul>
+  <h3>Logout</h3>
+  <li>Simply got options button in sidebar and click on <b><i>Logout</i></b></li>
+</ul>
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2><i>Login Page</i></h2>
+<p>Here, user have to provide his <b><i>Name</u></i>, <i><b>Phone Number</b></i>, and have to upload his <i><b>Image</b></i> to proceed further.</p>
+<img src = "https://user-images.githubusercontent.com/93570605/161825825-b9064159-74cb-42d5-9b46-8d09a7469f50.png">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2><i>Home Page</i></h2>
+<p>User will see this home after logged in succesfully.</p>
+<img src = "https://user-images.githubusercontent.com/93570605/161826616-d480724d-4203-4acd-82ac-46c6a1d38864.png">
 
-### `npm test`
+<h2><i>Chat Page</i></h2>
+<p>Here user can start conversation with others after creating a group</p>
+<img src = "https://user-images.githubusercontent.com/93570605/161828128-ad2bd80f-256f-4b41-950e-bb806018a1ac.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2><i>Sidebar</i></h2>
+<p>All Groups created exist can be visible in this sidebar</p>
